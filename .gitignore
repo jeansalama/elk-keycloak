@@ -1,0 +1,7 @@
+# vscode
+.vscode
+
+# tmp files
+*.swo
+*.swp
+~
