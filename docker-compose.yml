@@ -14,6 +14,9 @@ services:
       - es-data:/usr/share/elasticsearch/data
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
       - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties
+      # (!) TLS certificates. Generate using instructions from tls/README.md.
+      - ./tls/elasticsearch/elasticsearch.p12:/usr/share/elasticsearch/config/elasticsearch.p12
+      - ./tls/elasticsearch/http.p12:/usr/share/elasticsearch/config/http.p12
     ports:
       - 9200:9200
     networks:
@@ -25,6 +28,7 @@ services:
       ELASTIC_PASSWORD: $ELASTIC_PASSWORD
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
+      - ./tls/kibana/elasticsearch-ca.pem:/usr/share/kibana/config/elasticsearch-ca.pem
     ports:
       - 5601:5601
     networks:
