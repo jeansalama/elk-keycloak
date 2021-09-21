@@ -13,6 +13,7 @@ services:
     volumes:
       - es-data:/usr/share/elasticsearch/data
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - ./elasticsearch/config/log4j2.properties:/usr/share/elasticsearch/config/log4j2.properties
     ports:
       - 9200:9200
     networks:
@@ -20,6 +21,8 @@ services:
 
   kibana:
     image: docker.elastic.co/kibana/kibana:$ELK_TAG
+    environment:
+      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
