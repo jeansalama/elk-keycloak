@@ -36,6 +36,24 @@ services:
     depends_on:
       - elasticsearch
 
+  enterprise-search:
+    image: docker.elastic.co/enterprise-search/enterprise-search:$ELK_TAG
+    volumes:
+      - ./enterprise-search/config/enterprise-search.yml:/usr/share/enterprise-search/config/enterprise-search.yml
+      # (!) CA certificate. Generate using instructions from tls/README.md
+      - ./tls/kibana/elasticsearch-ca.pem:/usr/share/enterprise-search/config/elasticsearch-ca.pem
+    environment:
+      JAVA_OPTS: -Xmx2g -Xms2g
+      # ELASTIC_PASSWORD: $ELASTIC_PASSWORD
+      ENT_SEARCH_DEFAULT_PASSWORD: changeme
+    ports:
+      - 3002:3002
+    networks:
+      - elastic
+    depends_on:
+      - elasticsearch
+
+
 volumes:
   es-data:
     driver: local

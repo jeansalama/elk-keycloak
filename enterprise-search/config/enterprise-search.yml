@@ -1,0 +1,33 @@
+---
+## Enterprise Search core configuration
+## https://www.elastic.co/guide/en/enterprise-search/current/configuration.html
+#
+
+## --------------------- REQUIRED ---------------------
+## Encryption keys to protect application secrets.
+## https://www.elastic.co/guide/en/enterprise-search/current/encryption-keys.html
+#
+secret_management.encryption_keys:
+  # Generated encryption key
+  - 9e43e0f8b4eb95fcb8283518aa8366a815412e7b905634021b3c233412da4dc3
+
+## ----------------------------------------------------
+
+# IP address Enterprise Search listens on
+ent_search.listen_host: 0.0.0.0
+
+# URL at which users reach Enterprise Search
+ent_search.external_url: http://localhost:3002
+
+# Retry time interval
+elasticsearch.startup_retry.interval: 15
+
+# Elasticsearch URL and credentials
+elasticsearch.host: https://elasticsearch:9200
+elasticsearch.username: elastic
+elasticsearch.password: changeme
+elasticsearch.ssl.enabled: true
+elasticsearch.ssl.certificate_authority: /usr/share/enterprise-search/config/elasticsearch-ca.pem
+
+# Allow Enterprise Search to modify Elasticsearch settings. Used to enable auto-creation of Elasticsearch indexes.
+allow_es_settings_modification: true
