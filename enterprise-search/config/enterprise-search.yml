@@ -31,3 +31,9 @@ elasticsearch.ssl.certificate_authority: /usr/share/enterprise-search/config/ela
 
 # Allow Enterprise Search to modify Elasticsearch settings. Used to enable auto-creation of Elasticsearch indexes.
 allow_es_settings_modification: true
+
+## Connect EES to kibana UI
+## https://www.elastic.co/guide/en/enterprise-search/current/user-interfaces.html#user-interfaces-kibana-setup
+## EES url will redirect to Kibana's external exposed url
+#
+kibana.external_url: http://localhost:5601

@@ -23,3 +23,9 @@ elasticsearch.password: ${ELASTIC_PASSWORD}
 ## see https://www.elastic.co/guide/en/kibana/current/configuring-tls.html#configuring-tls-kib-es
 #
 elasticsearch.ssl.certificateAuthorities: [ "config/elasticsearch-ca.pem" ]
+
+## Connect EES to Kibana UI
+## https://www.elastic.co/guide/en/enterprise-search/current/user-interfaces.html#user-interfaces-kibana-setup
+## (For docker-compose, use internal service hostname)
+#
+enterpriseSearch.host: http://enterprise-search:3002
