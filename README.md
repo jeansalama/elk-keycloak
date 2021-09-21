@@ -30,7 +30,7 @@ ELASTIC_PASSWORD=changeme
 - [Kibana](https://www.elastic.co/guide/en/kibana/current/docker.html)
 - [OIDC config](https://www.elastic.co/guide/en/elasticsearch/reference/current/oidc-guide.html)
 - [docker-elk](https://github.com/deviantony/docker-elk/tree/tls) an all-in one ELK docker stack configured with TLS
-- [Keycloak]()
+- [Keycloak](https://www.keycloak.org/documentation.html)
 - ELK with Keycloak:
   * https://discuss.elastic.co/t/elk-stack-integration-with-keycloak/210909/15
   * https://search-guard.com/kibana-openid-keycloak/
