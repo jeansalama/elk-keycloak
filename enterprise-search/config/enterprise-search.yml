@@ -25,7 +25,7 @@ elasticsearch.startup_retry.interval: 15
 # Elasticsearch URL and credentials
 elasticsearch.host: https://elasticsearch:9200
 elasticsearch.username: elastic
-elasticsearch.password: changeme
+elasticsearch.password: ${ELASTIC_PASSWORD}
 elasticsearch.ssl.enabled: true
 elasticsearch.ssl.certificate_authority: /usr/share/enterprise-search/config/elasticsearch-ca.pem
 

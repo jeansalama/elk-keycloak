@@ -5,3 +5,7 @@
 *.swo
 *.swp
 ~
+
+# secrets
+oidc_client_secret.txt
+.env

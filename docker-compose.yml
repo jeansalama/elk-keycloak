@@ -4,7 +4,7 @@ services:
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:$ELK_TAG
     environment:
-      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      ES_JAVA_OPTS: -Xmx1g -Xms1g
       ELASTIC_PASSWORD: $ELASTIC_PASSWORD
     ulimits:
       memlock:
@@ -38,14 +38,15 @@ services:
 
   enterprise-search:
     image: docker.elastic.co/enterprise-search/enterprise-search:$ELK_TAG
+    environment:
+      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
     volumes:
       - ./enterprise-search/config/enterprise-search.yml:/usr/share/enterprise-search/config/enterprise-search.yml
       # (!) CA certificate. Generate using instructions from tls/README.md
       - ./tls/kibana/elasticsearch-ca.pem:/usr/share/enterprise-search/config/elasticsearch-ca.pem
     environment:
-      JAVA_OPTS: -Xmx2g -Xms2g
-      # ELASTIC_PASSWORD: $ELASTIC_PASSWORD
-      ENT_SEARCH_DEFAULT_PASSWORD: changeme
+      JAVA_OPTS: -Xmx1g -Xms1g
+      ELASTIC_PASSWORD: $ELASTIC_PASSWORD
     ports:
       - 3002:3002
     networks:
@@ -53,6 +54,10 @@ services:
     depends_on:
       - elasticsearch
 
+# secrets:
+#   es-keystore:
+#     xpack.security.authc.realms.oidc.oidc1.rp.client_secret:
+#       file: oidc_client_secret.txt
 
 volumes:
   es-data:

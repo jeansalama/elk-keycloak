@@ -9,12 +9,15 @@ A simple integration to test oidc configuration
 
 ## Pre-configurations
 
-Create `.env` file at the project root with these following environment variables with suitable values
+- Create `.env` file at the project root with these following environment variables with suitable values
 
 ```sh
-ELK_TAG=7.14.1
+ELK_TAG=7.17.6
 ELASTIC_PASSWORD=changeme
 ```
+
+- Setup TLS certificates, refer to [`tls/`](tls/) for more details
+- 
 
 ## Run, stop and clean
 
